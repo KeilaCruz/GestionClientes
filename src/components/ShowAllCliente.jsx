@@ -29,36 +29,40 @@ function ShowAllCliente() {
 
   return (
     <>
-      <div>
-        <div>
+      <div className="bg-green-200 min-h-screen flex flex-col justify-center items-center">
+        <div >
+          <div className="px-20 pt-5 pb-1 mb-1 mt-2">
+            <h3 className="font-medium text-center mb-2 mt-10 text-4xl">Visualizar y consultar</h3>
+          </div>
           <input
             name="barraBusqueda"
             placeholder="Id o nombre del cliente"
-            onChange={handleInputSearchChange}
+            onChange={handleInputSearchChange} className="w-full h-12 px-2 mb-2 text-lg text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
           ></input>
         </div>
-        <div>
-          <table>
-            <thead>
+        <div className="relative overflow-x-auto">
+          <table className="w-full text-sm text-left text-black-500 dark:text-black-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 px-6 py-4">
               <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido paterno</th>
-                <th scope="col">Apellido materno</th>
-                <th scope="col">RFC</th>
-                <th scope="col">Email</th>
-                <th scope="col">Telefono</th>
+                <th scope="col" className="px-6 py-3">Id</th>
+                <th scope="col" className="px-6 py-3">Nombre</th>
+                <th scope="col" className="px-6 py-3">Apellido paterno</th>
+                <th scope="col" className="px-6 py-3">Apellido materno</th>
+                <th scope="col" className="px-6 py-3">RFC</th>
+                <th scope="col" className="px-6 py-3">Email</th>
+                <th scope="col" className="px-6 py-3">Telefono</th>
               </tr>
             </thead>
             <tbody>
               {clientes.map((cliente) => (
-                <tr key={cliente.id}>
-                  <td>{cliente.id}</td>
-                  <td>{cliente.nombre}</td>
-                  <td>{cliente.apellidoPaterno}</td>
-                  <td>{cliente.apellidoMaterno}</td>
-                  <td>{cliente.rfcCliente}</td>
-                  <td>{cliente.email}</td>
-                  <td>{cliente.telefono}</td>
+                <tr key={cliente.id} className="bg-white border-b dark:bg-white-800 dark:border-gray-700">
+                  <td className="px-6 py-4">{cliente.id}</td>
+                  <td className="px-6 py-4">{cliente.nombre}</td>
+                  <td className="px-6 py-4">{cliente.apellidoPaterno}</td>
+                  <td className="px-6 py-4">{cliente.apellidoMaterno}</td>
+                  <td className="px-6 py-4">{cliente.rfcCliente}</td>
+                  <td className="px-6 py-4">{cliente.email}</td>
+                  <td className="px-6 py-4">{cliente.telefono}</td>
                 </tr>
               ))}
             </tbody>
