@@ -5,6 +5,7 @@ import { editCliente, getCliente } from "../services/OperacionesCliente";
 function EditCliente() {
   const [rfcCustomer, setRfcCustomer] = useState("");
   const [formData, setFormData] = useState({
+    id: "",
     nombre: "",
     apePaterno: "",
     apeMaterno: "",
@@ -17,6 +18,7 @@ function EditCliente() {
     async function setDatosCliente() {
       const datos = await getCliente(rfcCustomer);
       setFormData({
+        id: datos.id,
         nombre: datos.nombre,
         apePaterno: datos.apellidoPaterno,
         apeMaterno: datos.apellidoMaterno,
@@ -35,6 +37,7 @@ function EditCliente() {
     })
   }
   const handleSubmit = (evt) => {
+    evt.preventDefault();
     editCliente(rfcCustomer, formData.nombre, formData.apePaterno, formData.apeMaterno, formData.rfc, formData.email, formData.telefono);
     alert('Se ha editado el cliente');
   }
